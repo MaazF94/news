@@ -17,7 +17,7 @@ public class ArticleService {
 
     GNewsFeignClient gNewsFeignClient;
     Map<String, NewsArticleResponse> keyWordResponse = new HashMap<>();
-    static String API_KEY = "910a840c601b0aa3a5fe256f6ce724fa";
+    static final String API_KEY = "910a840c601b0aa3a5fe256f6ce724fa";
 
     public NewsArticleResponse getNewsArticle(int limit) {
         return gNewsFeignClient.getNewsArticle(API_KEY, "example", limit);
