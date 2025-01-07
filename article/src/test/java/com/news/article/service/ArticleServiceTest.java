@@ -19,11 +19,12 @@ class ArticleServiceTest {
 
     @Mock
     GNewsFeignClient gNewsFeignClient;
+    String apiKey = "";
     ArticleService articleService;
 
     @BeforeEach
     public void setup() {
-        this.articleService = new ArticleService(gNewsFeignClient);
+        this.articleService = new ArticleService(apiKey, gNewsFeignClient);
     }
 
     @Test

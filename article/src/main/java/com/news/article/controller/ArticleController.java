@@ -28,8 +28,12 @@ public class ArticleController {
 
     @GetMapping("/articles/search/{keyword}")
     public ResponseEntity<NewsArticleResponse> newsArticles(@PathVariable String keyword) {
-        NewsArticleResponse results = articleService.getNewsArticle(keyword);
-        return ResponseEntity.status(HttpStatus.OK).body(results);
+        try {
+            NewsArticleResponse results = articleService.getNewsArticle(keyword);
+            return ResponseEntity.status(HttpStatus.OK).body(results);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(NewsArticleResponse.builder().build());
+        }
     }
 
 }
